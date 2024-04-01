@@ -2,6 +2,9 @@ package hello.core.scan;
 
 import hello.core.AppConfig;
 import hello.core.AutoAppConfig;
+import hello.core.discount.DiscountPolicy;
+import hello.core.discount.FixDiscountPolicy;
+import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
@@ -25,6 +28,9 @@ public class AutoAppConfigTest {
         OrderServiceImpl orderServiceImpl = ac.getBean("orderServiceImpl", OrderServiceImpl.class);
         MemberRepository memberRepository = orderServiceImpl.getMemberRepository();
         System.out.println("memberRepository = " + memberRepository);
+
+        DiscountPolicy discountPolicy = orderServiceImpl.getDiscountPolicy();
+        Assertions.assertThat(discountPolicy).isInstanceOf(RateDiscountPolicy.class);
     }
 
 }
