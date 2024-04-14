@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -74,11 +75,13 @@ public class BasicItemController {
 //    }
 
     @PostMapping("/add")
-    public String addItemV3(@ModelAttribute Item item) {
+    public String addItemV3(@ModelAttribute Item item, RedirectAttributes redirectAttributes) {
         log.debug("itemName={}, price={}, quantity={}",
                 item.getItemName(), item.getPrice(), item.getQuantity());
-        itemRepository.save(item);
-        return "basic/item";
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/basic/items/{itemId}";
     }
 
     @GetMapping("/{itemId}/edit")
