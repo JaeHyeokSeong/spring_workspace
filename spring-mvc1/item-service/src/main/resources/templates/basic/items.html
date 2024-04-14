@@ -27,7 +27,7 @@
             <tbody>
             <tr th:each="item : ${items}">
                 <td><a th:href="@{/basic/items/{itemId}(itemId=${item.id})}" th:text="${item.id}">item id</a></td>
-                <th><a th:href="@{|/basic/items/${item.id}|}" th:text="${item.name}">item name</a></th>
+                <th><a th:href="@{|/basic/items/${item.id}|}" th:text="${item.itemName}">item name</a></th>
                 <th th:text="${item.price}">item price</th>
                 <th th:text="${item.quantity}">item quantity</th>
             </tr>
