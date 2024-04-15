@@ -81,6 +81,12 @@ public class BasicController {
         return "basic/link";
     }
 
+    @GetMapping("/literal")
+    public String literal(Model model) {
+        model.addAttribute("data", "스프링 안녕!");
+        return "basic/literal";
+    }
+
 
     @Component("helloBean")
     static class HelloBean {
