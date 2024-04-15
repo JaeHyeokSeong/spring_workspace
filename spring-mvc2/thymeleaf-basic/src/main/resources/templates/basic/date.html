@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>LocalDateTime</h1>
+<ul>
+  <li>default = [[${localDateTime}]]</li>
+  <li>yyyy-MM-dd HH:mm:ss = [[${#temporals.format(localDateTime, 'yyyy-MM-dd HH:mm:ss')}]]</li>
+</ul>
+
+<h1>LocalDateTime - Utils</h1>
+<ul>
+  <li>${#temporals.day(localDateTime)} = [[${#temporals.day(localDateTime)}]]</li>
+  <li>${#temporals.month(localDateTime)} = [[${#temporals.month(localDateTime)}]]</li>
+  <li>${#temporals.monthName(localDateTime)} = [[${#temporals.monthName(localDateTime)}]]</li>
+  <li>${#temporals.monthNameShort(localDateTime)} = [[${#temporals.monthNameShort(localDateTime)}]]</li>
+  <li>${#temporals.year(localDateTime)} = [[${#temporals.year(localDateTime)}]]</li>
+  <li>${#temporals.dayOfWeek(localDateTime)} = [[${#temporals.dayOfWeek(localDateTime)}]]</li>
+  <li>${#temporals.dayOfWeekName(localDateTime)} = [[${#temporals.dayOfWeekName(localDateTime)}]]</li>
+  <li>${#temproals.hour(localDateTime)} = [[${#temporals.hour(localDateTime)}]]</li>
+  <li>${#temporals.minute(localDateTime)} = [[${#temporals.minute(localDateTime)}]]</li>
+  <li>${#temporals.second(localDateTime)} = [[${#temporals.second(localDateTime)}]]</li>
+  <li>${#temporals.nanosecond(localDateTime)} = [[${#temporals.nanosecond(localDateTime)}]]</li>
+</ul>
+
+</body>
+</html>

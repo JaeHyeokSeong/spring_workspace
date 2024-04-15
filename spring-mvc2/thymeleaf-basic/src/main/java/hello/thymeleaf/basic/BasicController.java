@@ -5,18 +5,21 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Controller
+@Slf4j
 @RequestMapping("/basic")
 public class BasicController {
 
@@ -60,6 +63,15 @@ public class BasicController {
         model.addAttribute("response", response);
         model.addAttribute("servletContext", request.getServletContext());
         return "basic/basic-objects";
+    }
+
+    @GetMapping("/date")
+    public String data(Model model) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        model.addAttribute("localDateTime", localDateTime);
+        log.info("localDateTime = {}", localDateTime);
+
+        return "basic/date";
     }
 
 
