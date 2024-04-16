@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- javascript inline 사용 전 -->
+<script>
+    let username = [[${user.username}]];
+    let age = [[${user.age}]];
+
+    // javascript 내추럴 템플릿
+    let username2 = /*[[${user.username}]]*/ "test username";
+
+    // object
+    let user = [[${user}]]
+</script>
+
+<script th:inline="javascript">
+    let username = [[${user.username}]];
+    let age = [[${user.age}]];
+
+    // javascript 내추럴 템플릿
+    let username2 = /*[[${user.username}]]*/ "test username";
+
+    // object
+    let user = [[${user}]]
+
+    [# th:each="user, userState : ${users}"]
+    var user[[${userState.count}]] = [[${user}]]
+    [/]
+</script>
+
+</body>
+</html>
