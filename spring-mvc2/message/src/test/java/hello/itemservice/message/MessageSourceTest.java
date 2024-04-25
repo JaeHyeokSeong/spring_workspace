@@ -64,4 +64,11 @@ public class MessageSourceTest{
     void koLang() {
         Assertions.assertThat(ms.getMessage("hello", null, Locale.KOREA)).isEqualTo("안녕");
     }
+
+    @Test
+    @DisplayName("여러 매개변수 사용 - 한국어")
+    void koLangMultiArgumentsMessage() {
+        String result = ms.getMessage("hello.names", new Object[]{"1", "2", "3"}, Locale.KOREA);
+        Assertions.assertThat(result).isEqualTo("안녕 1, 2, 3");
+    }
 }
