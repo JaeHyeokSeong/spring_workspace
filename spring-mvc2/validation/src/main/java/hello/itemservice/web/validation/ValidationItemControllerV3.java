@@ -88,6 +88,7 @@ public class ValidationItemControllerV3 {
             return "validation/v3/editForm";
         }
 
+        log.info("updated item={}", item);
         itemRepository.update(itemId, item);
         return "redirect:/validation/v3/items/{itemId}";
     }

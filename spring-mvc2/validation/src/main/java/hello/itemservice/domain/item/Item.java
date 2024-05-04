@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class Item {
 
+    @NotNull
     private Long id;
     @NotBlank
     private String itemName;
@@ -17,7 +18,7 @@ public class Item {
     @Range(min = 1000, max = 1000000)
     private Integer price;
     @NotNull
-    @Max(9999)
+//    @Max(9999)
     private Integer quantity;
 
     public Item() {
