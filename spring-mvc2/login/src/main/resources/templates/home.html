@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="" th:href="@{/css/bootstrap.min.css}">
+  <title>Home Page</title>
+</head>
+<body>
+
+  <div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+      <h2>홈 화면</h2>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button class="w-100 btn btn-secondary btn-lg"
+                type="button" th:onclick="|location.href='@{/member/add}'|">
+          회원 가입
+        </button>
+      </div>
+      <div class="col">
+        <button class="w-100 btn btn-dark btn-lg"
+                th:onclick="|location.href='@{/login}'|" type="button">
+          로그인
+        </button>
+      </div>
+    </div>
+
+    <hr class="my-4">
+
+  </div>
+
+</body>
+</html>
