@@ -18,9 +18,9 @@ public class Member {
     @NotEmpty
     private String password;
 
-    public Member(String loginId, String name, String password) {
+    public Member(String loginId, String password, String name) {
         this.loginId = loginId;
-        this.name = name;
         this.password = password;
+        this.name = name;
     }
 }
