@@ -13,16 +13,19 @@ public class ServletExController {
 
     @GetMapping("/error-ex")
     public void errorEx() {
+        log.info("/error-ex 호출");
         throw new RuntimeException("예외 발생!");
     }
 
     @GetMapping("/error-404")
     public void error404(HttpServletResponse response) throws IOException {
+        log.info("/error-404 호출");
         response.sendError(404, "404 오류!");
     }
 
     @GetMapping("/error-500")
     public void error500(HttpServletResponse response) throws IOException {
+        log.info("/error-500 호출");
         response.sendError(500);
     }
 }
