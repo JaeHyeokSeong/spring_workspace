@@ -14,7 +14,7 @@ public class ServletExController {
     @GetMapping("/error-ex")
     public void errorEx() {
         log.info("/error-ex 호출");
-        throw new RuntimeException("예외 발생!");
+        throw new RuntimeException("예외 발생!!");
     }
 
     @GetMapping("/error-404")
@@ -33,5 +33,11 @@ public class ServletExController {
     public void error500(HttpServletResponse response) throws IOException {
         log.info("/error-500 호출");
         response.sendError(500);
+    }
+
+    @GetMapping("/error-501")
+    public void error501(HttpServletResponse response) throws IOException {
+        log.info("/error-501 호출");
+        response.sendError(501);
     }
 }
