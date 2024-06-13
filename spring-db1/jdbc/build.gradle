@@ -33,7 +33,7 @@ dependencies {
 
 	// 테스트에서 lombok 사용
 	testCompileOnly 'org.projectlombok:lombok'
-	testAnnotationProcessor 'org.springframework.boot:spring-boot-starter-test'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 
 }
 
