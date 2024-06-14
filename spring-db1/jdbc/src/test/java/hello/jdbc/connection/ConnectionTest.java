@@ -30,7 +30,7 @@ public class ConnectionTest {
     }
 
     @Test
-    void dataSourceConnectionPool() throws SQLException {
+    void dataSourceConnectionPool() throws SQLException, InterruptedException {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setJdbcUrl(URL);
         dataSource.setUsername(USERNAME);
@@ -39,6 +39,8 @@ public class ConnectionTest {
         dataSource.setPoolName("MyPool");
 
         useDataSource(dataSource);
+
+        Thread.sleep(1000);
     }
 
     private void useDataSource(DataSource dataSource) throws SQLException {
