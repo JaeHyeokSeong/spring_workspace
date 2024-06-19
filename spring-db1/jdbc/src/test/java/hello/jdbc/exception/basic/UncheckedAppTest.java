@@ -16,6 +16,17 @@ public class UncheckedAppTest {
         Assertions.assertThatThrownBy(() -> controller.request())
                 .isInstanceOf(Exception.class);
     }
+
+    @Test
+    void printEx() {
+        Controller controller = new Controller();
+        try {
+            controller.request();
+        } catch (Exception e) {
+            log.info("ex", e);
+        }
+    }
+
     static class Controller {
         Service service = new Service();
 
@@ -28,8 +39,8 @@ public class UncheckedAppTest {
         Repository repository = new Repository();
 
         public void logic() {
-            networkClient.call();
             repository.call();
+            networkClient.call();
         }
     }
     static class NetworkClient {
@@ -58,6 +69,9 @@ public class UncheckedAppTest {
     }
 
     static class RuntimeSQLException extends RuntimeException {
+        public RuntimeSQLException() {
+        }
+
         public RuntimeSQLException(Throwable cause) {
             super(cause);
         }
