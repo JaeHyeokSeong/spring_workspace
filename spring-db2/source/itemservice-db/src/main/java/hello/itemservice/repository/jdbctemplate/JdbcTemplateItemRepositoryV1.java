@@ -72,7 +72,7 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
 
         String sql = "select id, item_name, price, quantity from item";
         if (StringUtils.hasText(itemName) || maxPrice != null) {
-            sql += "where";
+            sql += " where";
         }
 
         boolean andFlag = false;
