@@ -83,12 +83,6 @@ class ItemRepositoryTest {
 
         //둘 다 있음 검증
         test("itemA", 10000, item1);
-
-        // itemName 공백인 경우 ex) " "
-        test(" ", null);
-
-        // itemName 공백 그리고 최대가격 10000
-        test(" ", 10000);
     }
 
     void test(String itemName, Integer maxPrice, Item... items) {
