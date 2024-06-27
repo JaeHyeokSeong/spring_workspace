@@ -26,7 +26,7 @@
         select id, item_name, price, quantity
         from item
         <where>
-            <if test="itemName != null and itemName=''">
+            <if test="itemName != null and itemName!=''">
                 and item_name like concat('%', #{itemName}, '%')
             </if>
             <if test="maxPrice != null">
