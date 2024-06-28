@@ -1,6 +1,5 @@
 package hello.itemservice;
 
-import com.zaxxer.hikari.HikariDataSource;
 import hello.itemservice.config.*;
 import hello.itemservice.repository.ItemRepository;
 import org.springframework.boot.SpringApplication;
