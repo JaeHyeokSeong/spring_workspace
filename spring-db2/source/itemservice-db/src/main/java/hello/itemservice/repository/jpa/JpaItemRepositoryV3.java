@@ -16,7 +16,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-import static hello.itemservice.domain.QItem.*;
+import static hello.itemservice.domain.QItem.item;
 
 @Repository
 @Transactional
