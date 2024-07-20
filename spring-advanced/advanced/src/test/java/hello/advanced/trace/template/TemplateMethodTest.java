@@ -4,6 +4,7 @@ import hello.advanced.trace.template.code.AbstractTemplate;
 import hello.advanced.trace.template.code.SubClassLogic1;
 import hello.advanced.trace.template.code.SubClassLogic2;
 import lombok.extern.slf4j.Slf4j;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
@@ -44,6 +45,30 @@ public class TemplateMethodTest {
         template1.execute();
 
         AbstractTemplate template2 = new SubClassLogic2();
+        template2.execute();
+    }
+
+    /**
+     * 템플릿 메서드 패턴, 익명 내부 클래스 사용
+     */
+    @Test
+    void templateMethodV2() {
+        AbstractTemplate template1 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비즈니스 로직1 실행");
+            }
+        };
+        log.info("클래스 이름1={}", template1.getClass());
+        template1.execute();
+
+        AbstractTemplate template2 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비즈니스 로지2 실행");
+            }
+        };
+        log.info("클래스 이름2={}", template2.getClass());
         template2.execute();
     }
 }
